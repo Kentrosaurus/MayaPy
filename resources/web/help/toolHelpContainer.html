@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help</title>
+
+    <link href="http://web.localhost.com/css/normalize/normalize.css" type="text/css" />
+    <style>
+        html, body { padding:0; margin:0; }
+        body { color:#333; font-size:70%; margin:10px; }
+    </style>
+
+    <script src="http://web.localhost.com/js/jquery/jquery.js"></script>
+    <script>
+        window.loadContent = function() {
+            var c = $(window.CADENCE.getContent());
+            $('#container').empty().html(c);
+        };
+        window.initializeCADENCE = function() { loadContent(); };
+        window.updateCADENCE = function() { loadContent(); };
+    </script>
+</head>
+<body><div id="container"></div></body>
+</html>
