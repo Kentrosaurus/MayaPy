@@ -1,4 +1,4 @@
-# CadenceHomeWidget.py
+# MayaPyHomeWidget.py
 # (C)2013
 # Scott Ernst
 
@@ -15,8 +15,8 @@ from pyglass.widgets.LineSeparatorWidget import LineSeparatorWidget
 from cadence.enum.UserConfigEnum import UserConfigEnum
 from cadence.views.home.CadenceNimbleStatusElement import CadenceNimbleStatusElement
 
-#___________________________________________________________________________________________________ CadenceHomeWidget
-class CadenceHomeWidget(PyGlassWidget):
+#___________________________________________________________________________________________________ MayaPyHomeWidget
+class MayaPyHomeWidget(PyGlassWidget):
     """A class for..."""
 
 #===================================================================================================
@@ -24,8 +24,8 @@ class CadenceHomeWidget(PyGlassWidget):
 
 #___________________________________________________________________________________________________ __init__
     def __init__(self, parent, **kwargs):
-        """Creates a new instance of CadenceHomeWidget."""
-        super(CadenceHomeWidget, self).__init__(parent, widgetFile=False, **kwargs)
+        """Creates a new instance of MayaPyHomeWidget."""
+        super(MayaPyHomeWidget, self).__init__(parent, widgetFile=False, **kwargs)
         self._firstView = True
 
         mainLayout = self._getLayout(self, QtGui.QHBoxLayout)

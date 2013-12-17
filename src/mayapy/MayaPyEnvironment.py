@@ -6,8 +6,8 @@ import os
 
 from pyaid.file.FileUtils import FileUtils
 
-#___________________________________________________________________________________________________ CadenceEnvironment
-class CadenceEnvironment(object):
+#___________________________________________________________________________________________________ MayaPyEnvironment
+class MayaPyEnvironment(object):
     """A class for..."""
 
 #===================================================================================================

@@ -1,4 +1,4 @@
-# CadenceToolViewerWidget.py
+# MayaPyToolViewerWidget.py
 # (C)2013
 # Scott Ernst
 
@@ -17,8 +17,8 @@ from pyglass.widgets.LineSeparatorWidget import LineSeparatorWidget
 from cadence.views.tools.ToolViewerHeaderElement import ToolViewerHeaderElement
 from cadence.views.tools.ToolsHelpCommunicator import ToolsHelpCommunicator
 
-#___________________________________________________________________________________________________ CadenceToolViewerWidget
-class CadenceToolViewerWidget(PyGlassWidget):
+#___________________________________________________________________________________________________ MayaPyToolViewerWidget
+class MayaPyToolViewerWidget(PyGlassWidget):
     """A class for..."""
 
 #===================================================================================================
@@ -33,8 +33,8 @@ class CadenceToolViewerWidget(PyGlassWidget):
 
 #___________________________________________________________________________________________________ __init__
     def __init__(self, parent, **kwargs):
-        """Creates a new instance of CadenceToolViewerWidget."""
-        super(CadenceToolViewerWidget, self).__init__(parent, widgetFile=False, **kwargs)
+        """Creates a new instance of MayaPyToolViewerWidget."""
+        super(MayaPyToolViewerWidget, self).__init__(parent, widgetFile=False, **kwargs)
 
         self._definition = None
 

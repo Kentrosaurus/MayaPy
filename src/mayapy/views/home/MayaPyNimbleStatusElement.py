@@ -14,8 +14,8 @@ from pyglass.themes.ThemeColorBundle import ThemeColorBundle
 
 from cadence.enum.UserConfigEnum import UserConfigEnum
 
-#___________________________________________________________________________________________________ CadenceNimbleStatusElement
-class CadenceNimbleStatusElement(PyGlassElement):
+#___________________________________________________________________________________________________ MayaPyNimbleStatusElement
+class MayaPyNimbleStatusElement(PyGlassElement):
     """A class for..."""
 
 #===================================================================================================
@@ -35,8 +35,8 @@ class CadenceNimbleStatusElement(PyGlassElement):
 
 #___________________________________________________________________________________________________ __init__
     def __init__(self, parent, enabled =False, **kwargs):
-        """Creates a new instance of CadenceNimbleStatusElement."""
-        super(CadenceNimbleStatusElement, self).__init__(parent, **kwargs)
+        """Creates a new instance of MayaPyNimbleStatusElement."""
+        super(MayaPyNimbleStatusElement, self).__init__(parent, **kwargs)
         self._colors      = None
         self._status      = False
         self._timer       = None

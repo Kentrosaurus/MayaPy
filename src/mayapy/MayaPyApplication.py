@@ -1,11 +1,11 @@
-# CadenceApplication.py
+# MayaPyApplication.py
 # (C)2013
 # Scott Ernst
 
 from pyglass.app.PyGlassApplication import PyGlassApplication
 
-#___________________________________________________________________________________________________ CadenceApplication
-class CadenceApplication(PyGlassApplication):
+#___________________________________________________________________________________________________ MayaPyApplication
+class MayaPyApplication(PyGlassApplication):
 
 #===================================================================================================
 #                                                                                   G E T / S E T
@@ -40,4 +40,4 @@ class CadenceApplication(PyGlassApplication):
 ####################################################################################################
 
 if __name__ == '__main__':
-    CadenceApplication().run()
+    MayaPyApplication().run()

@@ -5,7 +5,7 @@
 from pyglass.compile.PyGlassApplicationCompiler import PyGlassApplicationCompiler
 from pyglass.compile.SiteLibraryEnum import SiteLibraryEnum
 
-from cadence.CadenceApplication import CadenceApplication
+from mayapy.MayaPyApplication import MayaPyApplication
 
 #___________________________________________________________________________________________________ StaticFlowCompiler
 class StaticFlowCompiler(PyGlassApplicationCompiler):

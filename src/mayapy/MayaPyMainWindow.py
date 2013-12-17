@@ -1,4 +1,4 @@
-# CadenceMainWindow.py
+# MayaPyMainWindow.py
 # (C)2013
 # Scott Ernst
 
@@ -10,11 +10,11 @@ from pyaid.OsUtils import OsUtils
 from pyglass.windows.PyGlassWindow import PyGlassWindow
 
 # AS NEEDED: from cadence.models import tracks
-from cadence.views.home.CadenceHomeWidget import CadenceHomeWidget
-from cadence.views.tools.CadenceToolViewerWidget import CadenceToolViewerWidget
+from mayapy.views.home.CadenceHomeWidget import MayaPyHomeWidget
+from mayapy.views.tools.CadenceToolViewerWidget import MayaPyToolViewerWidget
 
-#___________________________________________________________________________________________________ CadenceMainWindow
-class CadenceMainWindow(PyGlassWindow):
+#___________________________________________________________________________________________________ MayaPyMainWindow
+class MayaPyMainWindow(PyGlassWindow):
     """A class for..."""
 
 #===================================================================================================
@@ -25,8 +25,8 @@ class CadenceMainWindow(PyGlassWindow):
         PyGlassWindow.__init__(
             self,
             widgets={
-                'home':CadenceHomeWidget,
-                'toolViewer':CadenceToolViewerWidget },
+                'home':MayaPyHomeWidget,
+                'toolViewer':MayaPyToolViewerWidget },
             title='Cadence Toolset',
             keyboardCallback=self._handleKeyboardCallback,
             **kwargs )
@@ -59,8 +59,8 @@ class CadenceMainWindow(PyGlassWindow):
 #___________________________________________________________________________________________________ _initializeImpl
     def _initializeImpl(self, *args, **kwargs):
         # Initialize databases
-        from cadence.models import tracks
-        super(CadenceMainWindow, self)._initializeImpl()
+        from mayapy.models import tracks
+        super(MayaPyMainWindow, self)._initializeImpl()
 
 #===================================================================================================
 #                                                                                 H A N D L E R S
