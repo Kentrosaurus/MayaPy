@@ -1,4 +1,4 @@
-# StaticFlowCompiler.py
+# MayaPyCompiler.py
 # (C)2013
 # Scott Ernst
 
@@ -7,8 +7,8 @@ from pyglass.compile.SiteLibraryEnum import SiteLibraryEnum
 
 from mayapy.MayaPyApplication import MayaPyApplication
 
-#___________________________________________________________________________________________________ StaticFlowCompiler
-class StaticFlowCompiler(PyGlassApplicationCompiler):
+#___________________________________________________________________________________________________ MayaPyCompiler
+class MayaPyCompiler(PyGlassApplicationCompiler):
     """A class for..."""
 
 #===================================================================================================
@@ -17,7 +17,7 @@ class StaticFlowCompiler(PyGlassApplicationCompiler):
 #___________________________________________________________________________________________________ GS: siteLibraries
     @property
     def siteLibraries(self):
-        return [SiteLibraryEnum.PYSIDE, SiteLibraryEnum.SQL_ALCHEMY]
+        return [SiteLibraryEnum.PYSIDE]
 
 #___________________________________________________________________________________________________ GS: binPath
     @property
@@ -27,26 +27,26 @@ class StaticFlowCompiler(PyGlassApplicationCompiler):
 #___________________________________________________________________________________________________ GS: appFilename
     @property
     def appFilename(self):
-        return 'Cadence'
+        return 'MayaPy'
 
 #___________________________________________________________________________________________________ GS: appDisplayName
     @property
     def appDisplayName(self):
-        return 'Cadence'
+        return 'MayaPy'
 
 #___________________________________________________________________________________________________ GS: applicationClass
     @property
     def applicationClass(self):
-        return CadenceApplication
+        return MayaPyApplication
 
 #___________________________________________________________________________________________________ GS: iconPath
     @property
     def iconPath(self):
-        return ['apps', 'Cadence']
+        return ['apps', 'MayaPy']
 
 ####################################################################################################
 ####################################################################################################
 
 if __name__ == '__main__':
-    StaticFlowCompiler().run()
+    MayaPyCompiler().run()
 

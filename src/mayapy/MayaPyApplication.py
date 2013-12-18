@@ -23,18 +23,18 @@ class MayaPyApplication(PyGlassApplication):
 #___________________________________________________________________________________________________ GS: appID
     @property
     def appID(self):
-        return 'Cadence'
+        return 'MayaPy'
 
 #___________________________________________________________________________________________________ GS: appGroupID
     @property
     def appGroupID(self):
-        return 'cadence'
+        return 'MayaPy'
 
 #___________________________________________________________________________________________________ GS: mainWindowClass
     @property
     def mainWindowClass(self):
-        from cadence.CadenceMainWindow import CadenceMainWindow
-        return CadenceMainWindow
+        from mayapy.MayaPyMainWindow import MayaPyMainWindow
+        return MayaPyMainWindow
 
 ####################################################################################################
 ####################################################################################################

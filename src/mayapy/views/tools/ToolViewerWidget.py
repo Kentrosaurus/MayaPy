@@ -1,4 +1,4 @@
-# MayaPyToolViewerWidget.py
+# ToolViewerWidget.py
 # (C)2013
 # Scott Ernst
 
@@ -14,11 +14,8 @@ from pyglass.web.PyGlassWebView import PyGlassWebView
 from pyglass.widgets.PyGlassWidget import PyGlassWidget
 from pyglass.widgets.LineSeparatorWidget import LineSeparatorWidget
 
-from cadence.views.tools.ToolViewerHeaderElement import ToolViewerHeaderElement
-from cadence.views.tools.ToolsHelpCommunicator import ToolsHelpCommunicator
-
-#___________________________________________________________________________________________________ MayaPyToolViewerWidget
-class MayaPyToolViewerWidget(PyGlassWidget):
+#___________________________________________________________________________________________________ ToolViewerWidget
+class ToolViewerWidget(PyGlassWidget):
     """A class for..."""
 
 #===================================================================================================
@@ -33,16 +30,13 @@ class MayaPyToolViewerWidget(PyGlassWidget):
 
 #___________________________________________________________________________________________________ __init__
     def __init__(self, parent, **kwargs):
-        """Creates a new instance of MayaPyToolViewerWidget."""
-        super(MayaPyToolViewerWidget, self).__init__(parent, widgetFile=False, **kwargs)
+        """Creates a new instance of ToolViewerWidget."""
+        super(ToolViewerWidget, self).__init__(parent, widgetFile=False, **kwargs)
 
         self._definition = None
 
         mainLayout = self._getLayout(self, QtGui.QVBoxLayout)
         mainLayout.setContentsMargins(0, 0, 0, 0)
-
-        self._header = ToolViewerHeaderElement(self)
-        mainLayout.addWidget(self._header)
 
         focalBox, focalLayout = self._createElementWidget(self, QtGui.QHBoxLayout, True)
 
@@ -57,13 +51,6 @@ class MayaPyToolViewerWidget(PyGlassWidget):
 
         sep = LineSeparatorWidget(w, False)
         l.addWidget(sep)
-
-        self._helpComm    = ToolsHelpCommunicator()
-        web = PyGlassWebView(w, communicator=self._helpComm, debug=True)
-        web.openUrl('http://web.localhost.com/help/toolHelpContainer.html')
-        web.setFixedWidth(360)
-        self._helpWebView = web
-        l.addWidget(self._helpWebView)
 
 #===================================================================================================
 #                                                                                     P U B L I C

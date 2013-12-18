@@ -10,8 +10,8 @@ from pyaid.OsUtils import OsUtils
 from pyglass.windows.PyGlassWindow import PyGlassWindow
 
 # AS NEEDED: from cadence.models import tracks
-from mayapy.views.home.CadenceHomeWidget import MayaPyHomeWidget
-from mayapy.views.tools.CadenceToolViewerWidget import MayaPyToolViewerWidget
+from mayapy.views.home.MayaPyHomeWidget import MayaPyHomeWidget
+from mayapy.views.tools.ToolViewerWidget import ToolViewerWidget
 
 #___________________________________________________________________________________________________ MayaPyMainWindow
 class MayaPyMainWindow(PyGlassWindow):
@@ -26,7 +26,7 @@ class MayaPyMainWindow(PyGlassWindow):
             self,
             widgets={
                 'home':MayaPyHomeWidget,
-                'toolViewer':MayaPyToolViewerWidget },
+                'toolViewer':ToolViewerWidget },
             title='Cadence Toolset',
             keyboardCallback=self._handleKeyboardCallback,
             **kwargs )
@@ -52,15 +52,6 @@ class MayaPyMainWindow(PyGlassWindow):
             if value and not self.isEnabled():
                 self.setEnabled(value)
             self._currentWidget.toggleInteractivity(value)
-
-#===================================================================================================
-#                                                                               P R O T E C T E D
-
-#___________________________________________________________________________________________________ _initializeImpl
-    def _initializeImpl(self, *args, **kwargs):
-        # Initialize databases
-        from mayapy.models import tracks
-        super(MayaPyMainWindow, self)._initializeImpl()
 
 #===================================================================================================
 #                                                                                 H A N D L E R S

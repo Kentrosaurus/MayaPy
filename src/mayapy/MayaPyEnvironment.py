@@ -1,5 +1,5 @@
-# CadenceEnvironment.py
-# (C)2012-2013 http://cadence.threeaddone.com
+# MayaPyEnvironment.py
+# (C)2012-2013
 # Scott Ernst
 
 import os
@@ -16,16 +16,6 @@ class MayaPyEnvironment(object):
     BASE_UNIX_TIME = 1373932675
 
     _ENV_PATH = os.path.dirname(os.path.abspath(__file__))
-
-#___________________________________________________________________________________________________ getConfigPath
-    @classmethod
-    def getConfigPath(cls, folder =None, filename =None):
-        return cls._createAbsolutePath('config', folder, filename)
-
-#___________________________________________________________________________________________________ getConfigPath
-    @classmethod
-    def getDataPath(cls, folder =None, filename =None):
-        return cls._createAbsolutePath('data', folder, filename)
 
 #___________________________________________________________________________________________________ getResourcePath
     @classmethod

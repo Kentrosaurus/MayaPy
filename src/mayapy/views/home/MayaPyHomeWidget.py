@@ -5,15 +5,9 @@
 from PySide import QtCore
 from PySide import QtGui
 
-from pyaid.ArgsUtils import ArgsUtils
-from pyaid.json.JSON import JSON
-
 from pyglass.gui.scrollArea.SimpleScrollArea import SimpleScrollArea
 from pyglass.widgets.PyGlassWidget import PyGlassWidget
 from pyglass.widgets.LineSeparatorWidget import LineSeparatorWidget
-
-from cadence.enum.UserConfigEnum import UserConfigEnum
-from cadence.views.home.CadenceNimbleStatusElement import CadenceNimbleStatusElement
 
 #___________________________________________________________________________________________________ MayaPyHomeWidget
 class MayaPyHomeWidget(PyGlassWidget):
@@ -40,20 +34,12 @@ class MayaPyHomeWidget(PyGlassWidget):
         self._statusBox, statusLayout = self._createElementWidget(self, QtGui.QVBoxLayout, True)
         statusLayout.addStretch()
 
-        self._nimbleStatus = CadenceNimbleStatusElement(
-            self._statusBox,
-            disabled=self.mainWindow.appConfig.get(UserConfigEnum.NIMBLE_TEST_STATUS, True) )
-        statusLayout.addWidget(self._nimbleStatus)
-
-        self._populateTools()
-
 #===================================================================================================
 #                                                                               P R O T E C T E D
 
 #___________________________________________________________________________________________________ _activateWidgetDisplayImpl
     def _activateWidgetDisplayImpl(self, **kwargs):
         if self._firstView:
-            self._nimbleStatus.refresh()
             self._firstView = False
 
 #___________________________________________________________________________________________________ _addTool
@@ -94,29 +80,3 @@ class MayaPyHomeWidget(PyGlassWidget):
         widget.userData    = data
         return widget
 
-#___________________________________________________________________________________________________ _populateTools
-    def _populateTools(self):
-        """Doc..."""
-
-        path = self.getAppResourcePath('ToolsManifest.json', isFile=True)
-
-        try:
-            f = open(path)
-            definition = JSON.fromString(f.read())
-            f.close()
-        except Exception, err:
-            self.log.writeError('ERROR: Unable to read tools manifest file.', err)
-            return
-
-        for tool in ArgsUtils.getAsList('tools', definition):
-            self._addTool(tool)
-
-        self._toolBox.layout().addStretch()
-
-#===================================================================================================
-#                                                                                 H A N D L E R S
-
-#___________________________________________________________________________________________________ _handleOpenTool
-    def _handleOpenTool(self):
-        element = self.sender().parent().parent()
-        self.mainWindow.setActiveWidget('toolViewer', args=element.userData)
