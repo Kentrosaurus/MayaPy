@@ -1,1 +1,3 @@
-__author__ = 'kent'
+# __init__.py
+# (C)2013
+# Scott Ernst

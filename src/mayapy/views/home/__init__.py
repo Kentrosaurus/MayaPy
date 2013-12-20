@@ -1,3 +1,3 @@
-#
-# (C)2012
-# sernst
+# __init__.py
+# (C)2013
+# Scott Ernst

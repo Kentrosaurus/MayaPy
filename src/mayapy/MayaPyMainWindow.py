@@ -2,16 +2,13 @@
 # (C)2013
 # Scott Ernst
 
-from PySide import QtCore
 from PySide import QtGui
-
-from pyaid.OsUtils import OsUtils
 
 from pyglass.windows.PyGlassWindow import PyGlassWindow
 
-# AS NEEDED: from cadence.models import tracks
 from mayapy.views.home.MayaPyHomeWidget import MayaPyHomeWidget
-from mayapy.views.tools.ToolViewerWidget import ToolViewerWidget
+from mayapy.views.assignment1.Assignment1Widget import Assignment1Widget
+from mayapy.views.assignment2.Assignment2Widget import Assignment2Widget
 
 #___________________________________________________________________________________________________ MayaPyMainWindow
 class MayaPyMainWindow(PyGlassWindow):
@@ -26,10 +23,11 @@ class MayaPyMainWindow(PyGlassWindow):
             self,
             widgets={
                 'home':MayaPyHomeWidget,
-                'toolViewer':ToolViewerWidget },
-            title='Cadence Toolset',
-            keyboardCallback=self._handleKeyboardCallback,
+                'assignment1':Assignment1Widget,
+                'assignment2':Assignment2Widget },
+            title='MayaPy',
             **kwargs )
+
         self.setMinimumSize(1024,480)
         self.setContentsMargins(0, 0, 0, 0)
 
@@ -40,43 +38,3 @@ class MayaPyMainWindow(PyGlassWindow):
         widget.setLayout(layout)
 
         self.setActiveWidget('home')
-
-#===================================================================================================
-#                                                                                     P U B L I C
-
-#___________________________________________________________________________________________________ toggleInteractivity
-    def toggleInteractivity(self, value):
-        if self._currentWidget.widgetID == 'home':
-            self.setEnabled(value)
-        else:
-            if value and not self.isEnabled():
-                self.setEnabled(value)
-            self._currentWidget.toggleInteractivity(value)
-
-#===================================================================================================
-#                                                                                 H A N D L E R S
-
-#___________________________________________________________________________________________________ _handleKeyboardCallback
-    def _handleKeyboardCallback(self, event):
-        mod  = event.modifiers()
-        mods = QtCore.Qt.ShiftModifier | QtCore.Qt.ControlModifier
-        if mod != mods:
-            if OsUtils.isMac():
-                mods = QtCore.Qt.ShiftModifier | QtCore.Qt.MetaModifier
-                if mod != mods:
-                    return False
-            else:
-                return False
-
-        op = self.windowOpacity()
-
-        if event.key() in [QtCore.Qt.Key_Plus, QtCore.Qt.Key_Equal]:
-            op = min(1.0, op + 0.2)
-        elif event.key() in [QtCore.Qt.Key_Minus, QtCore.Qt.Key_Underscore]:
-            op = max(0.2, op - 0.2)
-        else:
-            return False
-
-        self.setWindowOpacity(op)
-        return True
-
